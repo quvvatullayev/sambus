@@ -16,5 +16,10 @@ class RouteSerializer(serializers.ModelSerializer):
         model = Route
         fields = '__all__'
 
-        
+class StationSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Station
+        fields = '__all__'
+
+
         
