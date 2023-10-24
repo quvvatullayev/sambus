@@ -29,7 +29,7 @@ class Bus(models.Model):
     
 class Route(models.Model):
     buss = models.ForeignKey(Buss, on_delete=models.CASCADE)
-    route = models.JSONField()
+    route = models.JSONField(default={'locations':[]})
 
     def __str__(self) -> str:
         return self.buss.busnumber
