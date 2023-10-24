@@ -21,3 +21,12 @@ class Bus(models.Model):
 
     def __str__(self) -> str:
         return self.driver
+    
+class Route(models.Model):
+    buss = models.ForeignKey(Buss, on_delete=models.CASCADE)
+    route = models.JSONField()
+
+    def __str__(self) -> str:
+        return self.buss.busnumber
+    
+    
