@@ -5,3 +5,8 @@ class BussSerializer(serializers.ModelSerializer):
     class Meta:
         model = Buss
         fields = '__all__'
+
+class BusSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Bus
+        fields = '__all__'
