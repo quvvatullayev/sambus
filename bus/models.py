@@ -10,6 +10,9 @@ class Buss(models.Model):
     def __str__(self) -> str:
         return self.busnumber
     
+    class Meta:
+        ordering = ['-id']
+    
 class Bus(models.Model):
     driver = models.CharField(max_length=30)
     busid = models.CharField(max_length=30)
@@ -21,12 +24,18 @@ class Bus(models.Model):
     def __str__(self) -> str:
         return self.driver
     
+    class Meta:
+        ordering = ['-id']
+    
 class Route(models.Model):
     buss = models.ForeignKey(Buss, on_delete=models.CASCADE)
     route = models.JSONField()
 
     def __str__(self) -> str:
         return self.buss.busnumber
+    
+    class Meta:
+        ordering = ['-id']
     
 class Station(models.Model):
     title = models.CharField(max_length=30)
@@ -35,3 +44,6 @@ class Station(models.Model):
     
     def __str__(self) -> str:
         return self.title
+    
+    class Meta:
+        ordering = ['-id']
