@@ -16,8 +16,7 @@ class Bus(models.Model):
     img = models.ImageField(upload_to='./driverimg')
     bus = models.ForeignKey(Buss, on_delete=models.CASCADE)
 
-    let = models.IntegerField()
-    long = models.IntegerField()
+    location = models.JSONField()
 
     def __str__(self) -> str:
         return self.driver
@@ -29,4 +28,10 @@ class Route(models.Model):
     def __str__(self) -> str:
         return self.buss.busnumber
     
+class Station(models.Model):
+    title = models.CharField(max_length=30)
+    addresse = models.CharField(max_length=50)
+    location = models.JSONField()
     
+    def __str__(self) -> str:
+        return self.title
