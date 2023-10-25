@@ -6,4 +6,7 @@ from ..serializer import Route, RouteSerializer
 class RouteListCreateView(generics.ListCreateAPIView):
     queryset = Route.objects.all()
     serializer_class = RouteSerializer
-    
+
+class RouteDetilView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Route.objects.all()
+    serializer_class = RouteSerializer
