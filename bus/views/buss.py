@@ -6,4 +6,9 @@ from serializer import Buss, BussSerializer
 class BussListCreateView(generics.ListCreateAPIView):
     queryset = Buss.objects.all()
     serializer_class = BussSerializer
+
+
+class BussDetilView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Buss.objects.all()
+    serializer_class = BussSerializer
     
