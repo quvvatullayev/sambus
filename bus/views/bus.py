@@ -6,3 +6,8 @@ from ..serializer import Buss, BussSerializer, Bus, BusSerializer
 class BusListCreateView(generics.ListCreateAPIView):
     queryset = Bus.objects.all()
     serializer_class = BusSerializer
+
+class BusDetilView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Bus.objects.all()
+    serializer_class = BusSerializer
+    
