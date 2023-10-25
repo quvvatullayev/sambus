@@ -1,7 +1,7 @@
 from rest_framework import generics
 from rest_framework.request import Request
 from rest_framework.response import Response
-from serializer import Buss, BussSerializer
+from ..serializer import Buss, BussSerializer
 
 class BussListCreateView(generics.ListCreateAPIView):
     queryset = Buss.objects.all()
