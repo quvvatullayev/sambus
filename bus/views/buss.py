@@ -11,4 +11,3 @@ class BussListCreateView(generics.ListCreateAPIView):
 class BussDetilView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Buss.objects.all()
     serializer_class = BussSerializer
-    
