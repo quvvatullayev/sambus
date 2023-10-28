@@ -10,4 +10,10 @@ class RouteListCreateView(generics.ListCreateAPIView):
 class RouteDetilView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Route.objects.all()
     serializer_class = RouteSerializer
+
+    def retrieve(self, request, *args, **kwargs):
+        buss_id = kwargs['pk']
+        route_boj = Route.objects.get(buss = buss_id)
+        route = RouteSerializer(buss_id, many = False)
+        return Response(route.data)
     
