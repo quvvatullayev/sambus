@@ -14,6 +14,6 @@ class RouteDetilView(generics.RetrieveUpdateDestroyAPIView):
     def retrieve(self, request, *args, **kwargs):
         buss_id = kwargs['pk']
         route_boj = Route.objects.get(buss = buss_id)
-        route = RouteSerializer(buss_id, many = False)
+        route = RouteSerializer(route_boj, many = False)
         return Response(route.data)
     
