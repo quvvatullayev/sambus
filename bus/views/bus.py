@@ -10,4 +10,18 @@ class BusListCreateView(generics.ListCreateAPIView):
 class BusDetilView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Bus.objects.all()
     serializer_class = BusSerializer
+
+    def retrieve(self, request, *args, **kwargs):
+        bus_obj = Bus.objects.get(id = kwargs['pk'])
+        bus = BusSerializer(bus_obj, many = True).data
+
+        buss_obj = Buss.objects.get(id = bus['id'])
+        buss = BussSerializer(buss_obj, many = False).data
+
+        data = {
+            'bus':bus,
+            'buss':buss
+        }
+        
+        return Response(data=data)
     
