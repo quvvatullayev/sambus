@@ -6,3 +6,7 @@ from ..serializer import UserModel, UserSerializer
 class UserListCreateView(generics.ListCreateAPIView):
     queryset = UserModel.objects.all()
     serializer_class = UserSerializer
+
+class UserDetil(generics.RetrieveUpdateDestroyAPIView):
+    queryset = UserModel.objects.all()
+    serializer_class = UserSerializer
