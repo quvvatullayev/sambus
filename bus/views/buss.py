@@ -2,10 +2,14 @@ from rest_framework import generics
 from rest_framework.request import Request
 from rest_framework.response import Response
 from ..serializer import Buss, BussSerializer, Route, RouteSerializer
+from rest_framework import filters
+
 
 class BussListCreateView(generics.ListCreateAPIView):
     queryset = Buss.objects.all()
     serializer_class = BussSerializer
+    filter_backends = [filters.SearchFilter]
+    search_fields = ['busnumber',]
 
 
 class BussDetilView(generics.RetrieveUpdateDestroyAPIView):
