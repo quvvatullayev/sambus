@@ -10,15 +10,11 @@ from django.conf.urls.static import static
 
 
 schema_view = get_schema_view(
-   openapi.Info(
-      title="Bus Navegator API",
-      default_version='v1',
-      description="Test description",
-      terms_of_service="https://github.com/quvvatullayev/sambus",
-      contact=openapi.Contact(email="quvvatullayev@gmail.com"),
-   ),
-   public=True,
-   permission_classes=(permissions.AllowAny,),
+    openapi.Info(
+        title="Episyche Technologies",
+        default_version='v1',),
+    public=True,
+    permission_classes=(permissions.AllowAny,),
 )
 
 urlpatterns = [
