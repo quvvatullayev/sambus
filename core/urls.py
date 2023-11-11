@@ -11,8 +11,13 @@ from django.conf.urls.static import static
 
 schema_view = get_schema_view(
     openapi.Info(
-        title="Episyche Technologies",
-        default_version='v1',),
+        title="SamBus API",
+        default_version='v1',
+        description="Samarkand's buss are rood",
+        terms_of_service="https://github.com/quvvatullayev",
+        contact=openapi.Contact(email="quvvatullayev@gmail.com"),
+        license=openapi.License(name="My License"),
+    ),
     public=True,
     permission_classes=(permissions.AllowAny,),
 )
