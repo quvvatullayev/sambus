@@ -2,18 +2,18 @@ from rest_framework import generics
 from rest_framework.request import Request
 from rest_framework.response import Response
 from ..serializers import BusStopSerializer, BusStopModel, BusModel, BusSerializer
-from rest_framework.permissions import IsAdminUser
+from rest_framework.permissions import IsAdminUser, IsAuthenticated, IsAuthenticatedOrReadOnly
 from .authuser import ReadOnly
 
 class BusStopListCreateView(generics.ListCreateAPIView):
     queryset = BusStopModel.objects.all()
     serializer_class = BusStopSerializer
-    permission_classes = [IsAdminUser|ReadOnly]
+    permission_classes = [IsAuthenticatedOrReadOnly]
 
 class BusStopRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
     queryset = BusStopModel.objects.all()
     serializer_class = BusStopSerializer
-    permission_classes = [IsAdminUser|ReadOnly]
+    permission_classes = [IsAuthenticatedOrReadOnly]
 
     def retrieve(self, request, *args, **kwargs):
 

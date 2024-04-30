@@ -2,18 +2,18 @@ from rest_framework import generics
 from rest_framework.request import Request
 from rest_framework.response import Response
 from ..serializers import BusSerializer, BusModel
-from rest_framework.permissions import IsAdminUser
+from rest_framework.permissions import IsAdminUser, IsAuthenticatedOrReadOnly
 from .authuser import ReadOnly
 
 class BusListCreateView(generics.ListCreateAPIView):
     queryset = BusModel.objects.all()
     serializer_class = BusSerializer
-    permission_classes = [IsAdminUser|ReadOnly]
+    permission_classes = [IsAuthenticatedOrReadOnly]
 
 class BusRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
     queryset = BusModel.objects.all()
     serializer_class = BusSerializer
-    permission_classes = [IsAdminUser|ReadOnly]
+    permission_classes = [IsAuthenticatedOrReadOnly]
 
     def get(self, request, *args, **kwargs):
         instance = self.get_object()  # Get the requested BusModel instance
