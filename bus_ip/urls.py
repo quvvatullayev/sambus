@@ -1,6 +1,7 @@
 from django.urls import path
-from .views import CreateBusStop
+from .views.busstopview import BusListCreateView, BusRetrieveUpdateDestroyView
 
 urlpatterns = [
-    path('create_busstop/', CreateBusStop.as_view())
+    path('buss/', BusListCreateView.as_view()),
+    path('bus/<int:pk>/', BusRetrieveUpdateDestroyView.as_view()),
 ]
