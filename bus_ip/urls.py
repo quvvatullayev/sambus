@@ -16,13 +16,12 @@ from .views.authuser import (
 
 app_name = 'bus_app'
 urlpatterns = [
-    path('busstops/', BusStopListCreateView.as_view(), name='busstop'),
+    path('busstop', BusStopListCreateView.as_view(), name='busstop'),
     path('busstop/<int:pk>/', BusStopRetrieveUpdateDestroyView.as_view()),
     
-    path('buss/', BusListCreateView.as_view()),
+    path('bus', BusListCreateView.as_view()),
     path('bus/<int:pk>/', BusRetrieveUpdateDestroyView.as_view()),
 
-    path('users/', UserListCreateView.as_view()),
-    path('registration/', UserCreateView.as_view()),
+    path('user', UserListCreateView.as_view()),
     path('user/<int:pk>/', UserRetrieveUpdateDestroyView.as_view()),
 ]
