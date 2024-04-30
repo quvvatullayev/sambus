@@ -54,6 +54,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'core.urls'
+STATIC_ROOT = BASE_DIR / 'static'
 
 TEMPLATES = [
     {
