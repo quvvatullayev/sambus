@@ -11,9 +11,12 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+# BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 
 # Quick-start development settings - unsuitable for production
@@ -24,6 +27,8 @@ SECRET_KEY = 'django-insecure-5g$co7e4j0)dwq%gk-q+6^$v*jz7*f%e9+ye8vo=aztsz74plc
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+
+TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
 
@@ -55,13 +60,15 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'core.urls'
 
+STATIC_ROOT = '/home/django/django_project/django_project/static'
 STATIC_URL = '/static/'
 
-STATIC_ROOT = BASE_DIR / 'staticfiles'  # Yangi direktoriya nomi
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
 
-STATICFILES_DIRS = [
-    BASE_DIR / 'static',  # Odatiy direktoriya
-]
+# STATIC_ROOT = BASE_DIR ,'static'  # Yangi direktoriya nomi
+
 
 TEMPLATES = [
     {
