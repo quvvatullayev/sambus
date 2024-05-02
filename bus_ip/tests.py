@@ -1,26 +1,14 @@
 import requests
 
-# CSRF tokenini olish uchun login sahifasiga GET so'rov yuborish
-response = requests.get('http://127.0.0.1:8000/login/')
+url = "http://127.0.0.1:8000/bus_ip/user/logout/"
 
-# HTML matnidan CSRF tokenini izlash
-csrf_token = response.text.split('name="csrfmiddlewaretoken" value="')
+payload = {}
+headers = {
+  '': '',
+  'Authorization': 'Token f66d3d923c696d1c56434d16013fd954d631cc88',
+  'Cookie': 'csrftoken=PsdLnWTNiqkHETaljcYDf1xPf4bakebS; sessionid=cnhqdxlmtod3utrio04v4vcl7qrttfwx'
+}
 
-for i in csrf_token:
-    print(i[1])
-    break
+response = requests.request("POST", url, headers=headers, data=payload)
 
-
-# # Yuboriladigan ma'lumotlar
-# data = {
-#     'username': 'ogabek',
-#     'password': '123',
-#     'csrfmiddlewaretoken': csrf_token  # CSRF tokenini qo'shish
-# }
-
-# # Login so'rovi jo'natish
-# response = requests.post('http://127.0.0.1:8000/login/', data=data)
-
-# # Login so'rovi javobi
-# print(response.status_code)  # Javob kodi
-# print(response.json())  # Javobning JSON formatdagi matni
+print(response.json())

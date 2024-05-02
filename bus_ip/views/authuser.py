@@ -7,6 +7,35 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.request import Request
 from django.contrib.auth.models import User
+from rest_framework.authtoken.models import Token
+from rest_framework.authentication import TokenAuthentication
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.views import APIView
+
+class Login_user(APIView):
+    permission_classes = [IsAuthenticated]
+    def post(self, request:Request):
+        username:User = request.user
+        
+        if User.objects.filter(username = username):
+            user = User.objects.get(username = username)
+            token, uniq = Token.objects.get_or_create(user = user)
+            return Response({"token":token.key})
+        else:
+            return Response({"user":"user not found"})
+
+class Logout_user(APIView):
+    authentication_classes = [TokenAuthentication]
+    def post(self, request:Request):
+        username:User = request.user
+        user = User.objects.get(username = username)
+
+        if Token.objects.get(user=user):
+            token = Token.objects.get(user = user)
+            token.delete()
+            return Response({"user":"user's token is deleted Successfully"})
+        else:
+            return Response({"user":"user not found"})
 
 class UserListCreateView(generics.ListCreateAPIView):
     queryset = User.objects.all()

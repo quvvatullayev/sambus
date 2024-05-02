@@ -11,7 +11,8 @@ from .views.busview import (
 from .views.authuser import (
     UserListCreateView,
     UserRetrieveUpdateDestroyView,
-    UserCreateView
+    Login_user,
+    Logout_user,
 )
 
 app_name = 'bus_app'
@@ -24,4 +25,7 @@ urlpatterns = [
 
     path('user', UserListCreateView.as_view()),
     path('user/<int:pk>/', UserRetrieveUpdateDestroyView.as_view()),
+
+    path('user/login/', Login_user.as_view()),
+    path('user/logout/', Logout_user.as_view()),
 ]

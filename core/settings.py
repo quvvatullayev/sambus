@@ -33,13 +33,6 @@ TEMPLATE_DEBUG = True
 ALLOWED_HOSTS = ["*"]
 CORS_ORIGIN_ALLOW_ALL = True
 
-SECURE_SSL_REDIRECT = True
-
-MY_PROTOCOL = "https"
-
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-
-CSRF_TRUSTED_ORIGINS = ['https://findbus.pythonanywhere.com']
 
 
 # Application definition
@@ -55,6 +48,7 @@ INSTALLED_APPS = [
     'bus_ip',
     "drf_yasg",
     'rest_framework',
+    'rest_framework.authtoken',
     "corsheaders",
 ]
 
