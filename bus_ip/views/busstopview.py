@@ -8,12 +8,12 @@ from .authuser import ReadOnly
 class BusStopListCreateView(generics.ListCreateAPIView):
     queryset = BusStopModel.objects.all()
     serializer_class = BusStopSerializer
-    permission_classes = [IsAuthenticatedOrReadOnly]
+    # permission_classes = [IsAuthenticatedOrReadOnly]
 
 class BusStopRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
     queryset = BusStopModel.objects.all()
     serializer_class = BusStopSerializer
-    permission_classes = [IsAuthenticatedOrReadOnly]
+    # permission_classes = [IsAuthenticatedOrReadOnly]
 
     def retrieve(self, request, *args, **kwargs):
 

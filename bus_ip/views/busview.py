@@ -8,12 +8,12 @@ from .authuser import ReadOnly
 class BusListCreateView(generics.ListCreateAPIView):
     queryset = BusModel.objects.all()
     serializer_class = BusSerializer
-    permission_classes = [IsAuthenticatedOrReadOnly]
+    # permission_classes = [IsAuthenticatedOrReadOnly]
 
 class BusRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
     queryset = BusModel.objects.all()
     serializer_class = BusSerializer
-    permission_classes = [IsAuthenticatedOrReadOnly]
+    # permission_classes = [IsAuthenticatedOrReadOnly]
 
     def get(self, request, *args, **kwargs):
         instance = self.get_object()  # Get the requested BusModel instance
