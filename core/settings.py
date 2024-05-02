@@ -64,13 +64,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-from rest_framework.permissions import IsAuthenticated, AllowAny
 
-REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': [
-        # 'rest_framework.authentication.AllowAny',
-    ]
-}
 
 ROOT_URLCONF = 'core.urls'
 
