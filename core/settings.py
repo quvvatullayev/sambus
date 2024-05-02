@@ -35,10 +35,7 @@ CORS_ORIGIN_ALLOW_ALL = True
 
 SECURE_SSL_REDIRECT = True
 
-
-SESSION_SAVE_EVERY_REQUEST = True
-SESSION_COOKIE_NAME = 'DNASkittle'
-
+MY_PROTOCOL = "https"
 
 
 # Application definition
