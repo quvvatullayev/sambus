@@ -36,8 +36,8 @@ urlpatterns = [
     path('busstop/<int:pk>/', BusStopDestroyView.as_view()),
     path('busstop/<int:pk>/', BusStopUpdateView.as_view()),
     
-    path('bus', BusListView.as_view()),
-    path('bus', BusCreateView.as_view()),
+    path('buss/', BusListView.as_view()),
+    path('bus/', BusCreateView.as_view()),
     path('bus/<int:pk>/', BusUpdeteView.as_view()),
     path('bus/<int:pk>/', BusDestroyView.as_view()),
     path('bus/<int:pk>/', BusRetrieveView.as_view()),
