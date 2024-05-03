@@ -3,6 +3,7 @@ from rest_framework.request import Request
 from rest_framework.response import Response
 from ..serializers import BusSerializer, BusModel
 from rest_framework.authentication import TokenAuthentication
+from rest_framework.permissions import AllowAny
 
 class BusCreateView(generics.CreateAPIView):
     queryset = BusModel.objects.all()
@@ -12,11 +13,12 @@ class BusCreateView(generics.CreateAPIView):
 class BusListView(generics.ListAPIView):
     queryset = BusModel.objects.all()
     serializer_class = BusSerializer
+    permission_classes = [AllowAny]
 
 class BusRetrieveView(generics.RetrieveAPIView):
     queryset = BusModel.objects.all()
     serializer_class = BusSerializer
-    authentication_classes = [TokenAuthentication]
+    permission_classes = [AllowAny]
 
     def get(self, request, *args, **kwargs):
         instance = self.get_object()  # Get the requested BusModel instance

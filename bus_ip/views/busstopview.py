@@ -3,13 +3,12 @@ from rest_framework.request import Request
 from rest_framework.response import Response
 from ..serializers import BusStopSerializer, BusStopModel, BusModel, BusSerializer
 from rest_framework.authentication import TokenAuthentication
-from rest_framework.permissions import IsAuthenticated, IsAuthenticatedOrReadOnly
+from rest_framework.permissions import AllowAny
 
 class BusStopListView(generics.ListAPIView):
     queryset = BusStopModel.objects.all()
     serializer_class = BusStopSerializer
-    # authentication_classes = [TokenAuthentication]
-    # permission_classes = [IsAuthenticatedOrReadOnly]
+    permission_classes = [AllowAny]
 
 class BusStopCreateView(generics.CreateAPIView):
     authentication_classes = [TokenAuthentication]
@@ -19,7 +18,7 @@ class BusStopCreateView(generics.CreateAPIView):
 class BusStopRetrieveView(generics.RetrieveAPIView):
     queryset = BusStopModel.objects.all()
     serializer_class = BusStopSerializer
-    authentication_classes = [TokenAuthentication]
+    permission_classes = [AllowAny]
 
     def retrieve(self, request, *args, **kwargs):
 
