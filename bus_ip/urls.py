@@ -20,18 +20,18 @@ from .views.authuser import (
     UserDestroyView,
     UserRetrieveView,
     UserUpdateView,
-    Login_user,
-    Logout_user,
+    LoginUser,
+    LogoutUser,
 )
 
 app_name = 'bus_app'
 urlpatterns = [
 
-    path('user/login/', Login_user.as_view()),
-    path('user/logout/', Logout_user.as_view()),
+    path('user/login/', LoginUser.as_view()),
+    path('user/logout/', LogoutUser.as_view()),
 
-    path('busstop', BusStopCreateView.as_view(), name='busstop'),
-    path('busstop', BusStopListView.as_view(), name='busstop'),
+    path('busstop/', BusStopCreateView.as_view(), name='busstop'),
+    path('busstops/', BusStopListView.as_view(), name='busstop'),
     path('busstop/<int:pk>/', BusStopRetrieveView.as_view()),
     path('busstop/<int:pk>/', BusStopDestroyView.as_view()),
     path('busstop/<int:pk>/', BusStopUpdateView.as_view()),
