@@ -43,8 +43,8 @@ urlpatterns = [
     path('bus/<int:pk>/', BusRetrieveView.as_view()),
 
 
-    path('user', UserListView.as_view()),
-    path('user', UserCreateView.as_view()),
+    path('users/', UserListView.as_view()),
+    path('user/', UserCreateView.as_view()),
     path('user/<int:pk>/', UserDestroyView.as_view()),
     path('user/<int:pk>/', UserUpdateView.as_view()),
     path('user/<int:pk>/', UserRetrieveView.as_view()),    
