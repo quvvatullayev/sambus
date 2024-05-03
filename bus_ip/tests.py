@@ -1,14 +1,17 @@
 import requests
 
-url = "http://127.0.0.1:8000/bus_ip/user/logout/"
+url = "https://findbus.pythonanywhere.com/bus_ip/user/login/"
 
 payload = {}
 headers = {
-  '': '',
-  'Authorization': 'Token f66d3d923c696d1c56434d16013fd954d631cc88',
-  'Cookie': 'csrftoken=PsdLnWTNiqkHETaljcYDf1xPf4bakebS; sessionid=cnhqdxlmtod3utrio04v4vcl7qrttfwx'
+  'Authorization': 'token YWRtaW46MTIz',
+  'Cookie': 'csrftoken=p4qk4afWK23zfgT1OQjKjeA4v6IOYHVszdTFLHkwSY1921KrvvK1rbTjzRE23Spd'
+}
+data = {
+    "username":'admin',
+    "password":123
 }
 
-response = requests.request("POST", url, headers=headers, data=payload)
+response = requests.post(url=url, params=data)
 
 print(response.json())

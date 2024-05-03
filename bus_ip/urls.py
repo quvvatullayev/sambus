@@ -1,31 +1,51 @@
 from django.urls import path, include
 from .views.busstopview import (
-    BusStopListCreateView,
-    BusStopRetrieveUpdateDestroyView,
+    BusStopListView,
+    BusStopCreateView,
+    BusStopDestroyView,
+    BusStopUpdateView,
+    BusStopRetrieveView,
     )
 from .views.busview import (
-    BusListCreateView,
-    BusRetrieveUpdateDestroyView,
+    BusListView,
+    BusCreateView,
+    BusDestroyView,
+    BusRetrieveView,
+    BusUpdeteView,
 )
 
 from .views.authuser import (
-    UserListCreateView,
-    UserRetrieveUpdateDestroyView,
+    UserCreateView,
+    UserListView,
+    UserDestroyView,
+    UserRetrieveView,
+    UserUpdateView,
     Login_user,
     Logout_user,
 )
 
 app_name = 'bus_app'
 urlpatterns = [
-    path('busstop', BusStopListCreateView.as_view(), name='busstop'),
-    path('busstop/<int:pk>/', BusStopRetrieveUpdateDestroyView.as_view()),
-    
-    path('bus', BusListCreateView.as_view()),
-    path('bus/<int:pk>/', BusRetrieveUpdateDestroyView.as_view()),
-
-    path('user', UserListCreateView.as_view()),
-    path('user/<int:pk>/', UserRetrieveUpdateDestroyView.as_view()),
 
     path('user/login/', Login_user.as_view()),
     path('user/logout/', Logout_user.as_view()),
+
+    path('busstop', BusStopCreateView.as_view(), name='busstop'),
+    path('busstop', BusStopListView.as_view(), name='busstop'),
+    path('busstop/<int:pk>/', BusStopRetrieveView.as_view()),
+    path('busstop/<int:pk>/', BusStopDestroyView.as_view()),
+    path('busstop/<int:pk>/', BusStopUpdateView.as_view()),
+    
+    path('bus', BusListView.as_view()),
+    path('bus', BusCreateView.as_view()),
+    path('bus/<int:pk>/', BusUpdeteView.as_view()),
+    path('bus/<int:pk>/', BusDestroyView.as_view()),
+    path('bus/<int:pk>/', BusRetrieveView.as_view()),
+
+
+    path('user', UserListView.as_view()),
+    path('user', UserCreateView.as_view()),
+    path('user/<int:pk>/', UserDestroyView.as_view()),
+    path('user/<int:pk>/', UserUpdateView.as_view()),
+    path('user/<int:pk>/', UserRetrieveView.as_view()),    
 ]
