@@ -1,4 +1,4 @@
-{
+data_busstp = {
     "hazora bekati":"39.681751, 66.900877" ,
     "texnikum":"39.677556, 66.910170",
     "seleno":"39.674152, 66.916687",
@@ -50,3 +50,12 @@
     "danlaget bozor":"39.685591, 66.895849",
     "do'stlik":"39.690731, 66.881706",
  }
+
+import requests
+
+for basstop in data_busstp.items():
+    busstop_name = basstop[0]
+    latitude = basstop[-1].split(', ')[0]
+    longitude = basstop[-1].split(', ')[-1]
+
+    print(busstop_name, latitude, longitude)
