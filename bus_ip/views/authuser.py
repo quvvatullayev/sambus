@@ -10,12 +10,9 @@ from rest_framework.authtoken.models import Token
 
 class LoginUser(APIView):
     authentication_classes = [BasicAuthentication]
-    
     def post(self, request: Request):
         user = request.user
-        
         user = User.objects.get(username=user.username)
-        
         if user:
             token, created = Token.objects.get_or_create(user=user)
             return Response({'token': token.key})

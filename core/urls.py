@@ -12,9 +12,9 @@ from django.conf.urls.static import static
 
 schema_view = get_schema_view(
    openapi.Info(
-      title="Fast Food API",
+      title="SamBus API",
       default_version='v1',
-      description="Fast Food",
+      description="SamBus",
       terms_of_service="https://www.github.com/quvvatullayev",
       contact=openapi.Contact(email="quvvatullayev@gmil.com"),
       license=openapi.License(name="Uzbekston Samarqand"),
