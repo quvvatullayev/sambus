@@ -11,7 +11,7 @@ class BusStopListView(generics.ListAPIView):
     permission_classes = [AllowAny]
 
 class BusStopCreateView(generics.CreateAPIView):
-    authentication_classes = [TokenAuthentication]
+    authentication_classes = [AllowAny]
     queryset = BusStopModel.objects.all()
     serializer_class = BusStopSerializer
 
