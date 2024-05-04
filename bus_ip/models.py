@@ -15,7 +15,7 @@ class BusStopModel(models.Model):
     busstop_name = models.CharField(max_length=225)
     latitude = models.CharField(max_length=125)
     longitude = models.CharField(max_length=125)
-    buss = models.ManyToManyField(BusModel)
+    buss = models.ManyToManyField(BusModel, blank=True)
 
     def __str__(self) -> str:
         return self.busstop_name
