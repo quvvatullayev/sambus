@@ -53,9 +53,18 @@ data_busstp = {
 
 import requests
 
+url = 'http://findbus.pythonanywhere.com/bus_ip/busstop/'
+
 for basstop in data_busstp.items():
     busstop_name = basstop[0]
     latitude = basstop[-1].split(', ')[0]
     longitude = basstop[-1].split(', ')[-1]
 
-    print(busstop_name, latitude, longitude)
+    data = {
+      "busstop_name": busstop_name,
+      "latitude": latitude,
+      "longitude": longitude,
+    }
+
+    req = requests.post(url=url, data=data)
+    print(req.status_code, req.json())
